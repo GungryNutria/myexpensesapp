@@ -8,7 +8,7 @@ packages:
       sha256: d2872f9c19731c2e5f10444b14686eb7cc85c76274bd6c16e1816bff9a3bab63
       url: "https://pub.dev"
     source: hosted
-    version: "2.11.0"
+    version: "2.12.0"
   bloc:
     dependency: transitive
     description:
@@ -91,7 +91,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-<<<<<<< HEAD
   leak_tracker:
     dependency: transitive
     description:
@@ -116,8 +115,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
-=======
->>>>>>> f1652ed (feat: :sparkles: Update Podfile for improved Flutter integration and remove Auth0 dependency)
   lints:
     dependency: transitive
     description:
@@ -165,11 +162,7 @@ packages:
       sha256: "75cca69d1490965be98c73ceaea117e8a04dd21217b37b292c9ddbec0d955bc5"
       url: "https://pub.dev"
     source: hosted
-<<<<<<< HEAD
     version: "1.9.1"
-=======
-    version: "1.8.3"
->>>>>>> f1652ed (feat: :sparkles: Update Podfile for improved Flutter integration and remove Auth0 dependency)
   provider:
     dependency: transitive
     description:
@@ -248,10 +241,5 @@ packages:
     source: hosted
     version: "14.3.1"
 sdks:
-<<<<<<< HEAD
   dart: ">=3.7.2 <4.0.0"
   flutter: ">=3.18.0-18.0.pre.54"
-=======
-  dart: ">=3.2.6 <4.0.0"
-  flutter: ">=1.16.0"
->>>>>>> f1652ed (feat: :sparkles: Update Podfile for improved Flutter integration and remove Auth0 dependency)
