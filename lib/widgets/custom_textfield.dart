@@ -4,12 +4,14 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final Function(String) onChanged;
+  final FormFieldValidator<String>? validator;
 
   const CustomTextField({
     Key? key,
     required this.hintText,
     this.obscureText = false,
     required this.onChanged,
+    this.validator,
   }) : super(key: key);
 
   @override
@@ -32,6 +34,7 @@ class CustomTextField extends StatelessWidget {
           hintText: hintText,
         ),
         onChanged: onChanged,
+        validator: validator,
       ),
     );
   }

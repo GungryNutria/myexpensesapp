@@ -10,6 +10,6 @@ class UserSaving extends UserState {}
 class UserSaved extends UserState {}
 
 class ErrorState extends UserState {
-  final String errorMessage;
-  ErrorState(this.errorMessage);
+  final String? errorMessage;
+  ErrorState({this.errorMessage});
 }
