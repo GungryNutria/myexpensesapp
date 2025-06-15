@@ -173,7 +173,8 @@ class _DashboardPageState extends State<DashboardPage> {
                 Form(
                   key: _formKey,
                   child: Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                    padding: const EdgeInsets.all(10),
+                    margin: const EdgeInsets.symmetric(horizontal: 0),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -198,7 +199,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         CustomDropdown<Category>(
                           items: _filterCategories(categories),
                           selectedItem: concept.category,
-                          hintText: "Categoria del Concepto",
+                          hintText: "Categoria",
                           onChanged:
                               (value) => {
                                 if (value != null) {concept.category = value},
@@ -231,36 +232,44 @@ class _DashboardPageState extends State<DashboardPage> {
 
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.all(1.0),
-          child: Text(
-            _getInputs(concepts),
-            style: Theme.of(
-              context,
-            ).textTheme.headlineSmall?.copyWith(color: Colors.green),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(1.0),
-          child: Text(
-            _getOutputs(concepts),
-            style: Theme.of(
-              context,
-            ).textTheme.headlineSmall?.copyWith(color: Colors.red),
-          ),
-        ),
-        AspectRatio(
-          aspectRatio: 1,
-          child: PieChart(
-            PieChartData(
-              sections: pieConcepts,
-              centerSpaceRadius: 80,
-              sectionsSpace: 3,
-            ),
+        Center(
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    _getInputs(concepts),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.headlineSmall?.copyWith(color: Colors.green),
+                  ),
+                  Text(
+                    _getOutputs(concepts),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.headlineSmall?.copyWith(color: Colors.red),
+                  ),
+                ],
+              ),
+
+              AspectRatio(
+                aspectRatio: 1.3,
+                child: PieChart(
+                  PieChartData(
+                    sections: pieConcepts,
+                    centerSpaceRadius: 80,
+                    sectionsSpace: 3,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
         SizedBox(
-          height: 250,
+          height: 300,
+
           child: SingleChildScrollView(
             child: Column(
               children: [
