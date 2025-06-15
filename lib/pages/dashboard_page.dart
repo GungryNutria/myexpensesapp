@@ -2,7 +2,6 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:myexpensesapp/bloc/concept/concept_bloc.dart';
 import 'package:myexpensesapp/models/category.dart';
 import 'package:myexpensesapp/models/concept.dart';

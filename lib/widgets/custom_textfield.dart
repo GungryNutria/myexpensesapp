@@ -10,14 +10,14 @@ class CustomTextField extends StatelessWidget {
   final List<FilteringTextInputFormatter>? inputFormatters;
 
   const CustomTextField({
-    Key? key,
+    super.key,
     required this.hintText,
     this.obscureText = false,
     required this.onChanged,
     this.validator,
     this.keyboardType = TextInputType.text,
     this.inputFormatters = const [],
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
