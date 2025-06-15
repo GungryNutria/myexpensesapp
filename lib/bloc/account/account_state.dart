@@ -13,8 +13,9 @@ class AccountLoaded extends AccountState {
   AccountLoaded(this.accounts);
 }
 class AccountSaved extends AccountState {
-  final String message;
-  AccountSaved(this.message);
+  final String? message;
+  final List<Account>? accounts;
+  AccountSaved({this.message, this.accounts});
 }
 
 class AccountError extends AccountState {

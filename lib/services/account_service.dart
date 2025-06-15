@@ -39,16 +39,19 @@ class AccountService {
     }
   }
 
-  Future<bool> addAccount(AccountCreate account) async {
+  Future<dynamic> addAccount(AccountCreate account) async {
     try{
       final url = Uri.parse('${Constants.API_URL}/accounts');
       var json = jsonEncode(account.toJson());
       
       final response = await http.post(url, body: json, headers: Constants.HEADERS); 
-      if(response.statusCode == 200 || response.statusCode == 201) return true;
-      return false;
+      if(response.statusCode == 200 || response.statusCode == 201) {
+        return Account.fromJson(jsonDecode(response.body));
+      } else {
+        return Errordetails(error: 'Account Not Saved', message: "Failed Saving Account", statusCode: 0);
+      }
     }catch(e){
-      return false;
+      return Errordetails(error: 'Error Catch', message: e.toString(), statusCode: 0);
     }
   }
 }

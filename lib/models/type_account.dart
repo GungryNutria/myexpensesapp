@@ -13,8 +13,8 @@ class TypeAccount {
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
-      'name': name,
+      'id': id ?? 0,
+      'name': name ?? '',
     };
   }
 }

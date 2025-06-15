@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomTextField extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final Function(String) onChanged;
   final FormFieldValidator<String>? validator;
+  final TextInputType keyboardType;
+  final List<FilteringTextInputFormatter>? inputFormatters;
 
   const CustomTextField({
     Key? key,
@@ -12,6 +15,8 @@ class CustomTextField extends StatelessWidget {
     this.obscureText = false,
     required this.onChanged,
     this.validator,
+    this.keyboardType = TextInputType.text,
+    this.inputFormatters = const [],
   }) : super(key: key);
 
   @override
@@ -20,7 +25,10 @@ class CustomTextField extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: TextFormField(
         obscureText: obscureText,
+        keyboardType: keyboardType,
+        inputFormatters: inputFormatters,
         textAlign: TextAlign.justify,
+
         decoration: InputDecoration(
           filled: false,
           enabledBorder: OutlineInputBorder(

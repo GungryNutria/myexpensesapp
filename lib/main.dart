@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:myexpensesapp/bloc/account/account_bloc.dart';
+import 'package:myexpensesapp/bloc/concept/concept_bloc.dart';
 import 'package:myexpensesapp/bloc/login/login_bloc.dart';
 import 'package:myexpensesapp/bloc/user/user_bloc.dart';
 import 'package:myexpensesapp/pages/dashboard_page.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => AccountBloc()),
         BlocProvider(create: (context) => LoginBloc()),
         BlocProvider(create: (context) => UserBloc()),
+        BlocProvider(create: (context) => ConceptBloc()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

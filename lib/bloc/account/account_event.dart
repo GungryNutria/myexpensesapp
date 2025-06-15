@@ -12,6 +12,7 @@ class FetchAccounts extends AccountEvent {
 class FetchTypeAccounts extends AccountEvent {}
 
 
+
 class AddAccount extends AccountEvent {
   final AccountCreate account;
 

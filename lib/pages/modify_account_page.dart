@@ -24,24 +24,29 @@ class _ModifyAccountPageState extends State<ModifyAccountPage> {
   late User user;
   late AccountCreate accountCreate;
   final _formKey = GlobalKey<FormState>();
+  bool isLoading = false;
 
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    account = Account();
-    accountCreate = AccountCreate();
-    user = Functions.GetHiveUser();
-    accountBloc = BlocProvider.of<AccountBloc>(context);
-    context.read<AccountBloc>().add(FetchTypeAccounts());
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    if (!isLoading) {
+      account = Account();
+      accountCreate = AccountCreate();
+      user = Functions.GetHiveUser();
+      accountBloc = BlocProvider.of<AccountBloc>(context);
+      accountBloc.add(FetchTypeAccounts());
+      isLoading = true;
+    }
   }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Modificar Cuenta", style: TextStyle(color: Colors.black),),
+        
         backgroundColor: ThemeColors.BLUE_GREEN_LIGHT,),
       body: SafeArea(
         child: BlocConsumer<AccountBloc, AccountState>(
@@ -61,13 +66,12 @@ class _ModifyAccountPageState extends State<ModifyAccountPage> {
               builder: (context, state) {
                 if (state is AccountTypeLoading) {
                   return const Center(child: CircularProgressIndicator());
-                } else if (state is AccountTypeLoaded) {
-                  return _formAccount(state.typeAccounts);
                 } else if (state is AccountTypeError) {
                   return Center(child: Text('Error: ${state.message}'));
-                } else {
-                  return const Center(child: Text('No type accounts found'));
+                } else if (state is AccountTypeLoaded && state.typeAccounts.isNotEmpty) {
+                  return _formAccount(state.typeAccounts);
                 }
+                return SizedBox();
               },
             );
           },

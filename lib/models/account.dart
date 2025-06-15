@@ -9,11 +9,12 @@ class Account {
   Account({this.id, this.name, this.description, this.typeAccount});
 
   factory Account.fromJson(Map<String, dynamic> json) {
+    
     return Account(
       id: json['id'],
       name: json['name'],
       description: json['description'],
-      typeAccount: TypeAccount.fromJson(json['typeAccount']) ?? TypeAccount(),
+      typeAccount: TypeAccount.fromJson(json['typeAccount']),
     );
   }
 

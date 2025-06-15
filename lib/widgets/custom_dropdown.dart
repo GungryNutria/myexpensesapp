@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myexpensesapp/models/category.dart';
 import 'package:myexpensesapp/models/type_account.dart';
 
 class CustomDropdown<T> extends StatelessWidget {
@@ -23,7 +24,7 @@ class CustomDropdown<T> extends StatelessWidget {
       child: DropdownButtonFormField<T>(
         value: selectedItem,
         items: items.map((T item) {
-          final itemName = item is TypeAccount ? item.name : item.toString();
+          final itemName = _getItemName(item);
           return DropdownMenuItem<T>(
             value: item,
             child: Text(itemName!),
@@ -44,5 +45,13 @@ class CustomDropdown<T> extends StatelessWidget {
           ),
         ),
     );
+  }
+  
+  _getItemName(T item) {
+    if (item is TypeAccount) {
+      return item.name;
+    } else if (item is Category) {
+      return item.name;
+    } 
   }
 }
