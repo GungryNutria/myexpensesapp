@@ -269,7 +269,6 @@ class _DashboardPageState extends State<DashboardPage> {
         ),
         SizedBox(
           height: 300,
-
           child: SingleChildScrollView(
             child: Column(
               children: [
