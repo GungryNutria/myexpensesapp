@@ -5,7 +5,6 @@ import 'package:myexpensesapp/models/error_details.dart';
 import 'package:myexpensesapp/models/login_model.dart';
 import 'package:myexpensesapp/models/user.dart';
 import 'package:myexpensesapp/utils/constants.dart';
-import 'package:myexpensesapp/utils/functions.dart';
 
 class UserProvider{
   Future<dynamic> registerUser(User user) async{

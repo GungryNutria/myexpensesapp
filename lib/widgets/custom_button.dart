@@ -23,6 +23,6 @@ class CustomButton extends StatelessWidget {
           style: const TextStyle(color: ThemeColors.BLUE_WHITE, fontSize: 20),
         ),
       ),
-    );;
+    );
   }
 }

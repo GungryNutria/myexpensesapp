@@ -63,7 +63,7 @@ class ConceptService {
       final url = Uri.parse('${Constants.API_URL}/concepts/$conceptId');
       final response = await http.delete(url, headers: Constants.HEADERS);
       if (response.statusCode == 200 || response.statusCode == 204) {
-        return true;;
+        return true;
       } else {
         return Errordetails.fromJson(jsonDecode(response.body));
       }
