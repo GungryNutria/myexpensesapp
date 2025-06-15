@@ -1,3 +1,5 @@
+import 'package:myexpensesapp/utils/functions.dart';
+
 class User {
   int? id;
   String? username;
@@ -10,7 +12,7 @@ class User {
     id = json['id'];
     username = json['username'];
     email = json['email'];
-    password = json['password'];
+    password = json['password'] ?? "";
   }
 
   Map<String, dynamic> toJson() {
@@ -18,7 +20,7 @@ class User {
     data['id'] = id;
     data['username'] = username;
     data['email'] = email;
-    data['password'] = password;
+    data['password'] = Functions.HashPassword(password!);
     return data;
   }
 }

@@ -35,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Center(
       child: BlocConsumer<LoginBloc, LoginState>(
         listener: (context, state) {
-          if (state is SignInLoaded) {
+          if (state is SignInSuccess) {
             Navigator.pushReplacementNamed(context, 'home');
           } else if (state is SignInError) {
             ScaffoldMessenger.of(context).showSnackBar(
