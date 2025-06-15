@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+
 permissions:
   contents: write
   issues: write
@@ -41,8 +42,9 @@ jobs:
       - name: Build APK
         run: flutter build apk --release
 
-      - name: Upload APK as artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload APK to GitHub Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: app-release.apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          files: build/app/outputs/flutter-apk/app-release.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
